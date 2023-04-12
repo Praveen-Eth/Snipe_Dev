@@ -1,34 +1,22 @@
-package com.augx_universe.snipedev;
+package com.augx_universe.snipedev
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-
-public class LoginPage extends Fragment {
-        CardView userName,password;
-     public  LoginPage(){
-
-     }
+class LoginPage : AppCompatActivity() {
+  lateinit  var binding: ActivityLoginPageBinding
+  lateinit var authViewModel: AuthViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_login_page)
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        binding.connector = authViewModel
+        binding.lifecycleOwner = this
 
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view  = inflater.inflate(R.layout.activity_login_page,container,false);
-
-
-        return view;
     }
 }
