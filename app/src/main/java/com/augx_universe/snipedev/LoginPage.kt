@@ -1,10 +1,12 @@
 package com.augx_universe.snipedev
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.room.Entity
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
 class LoginPage : AppCompatActivity() {
@@ -16,6 +18,8 @@ class LoginPage : AppCompatActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         binding.connector = authViewModel
         binding.lifecycleOwner = this
+
+
 
 
 
