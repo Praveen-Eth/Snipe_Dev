@@ -132,7 +132,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="70dp"
             android:theme="@style/Theme.Design.Light"
-            android:onClick="@{connector::updateCredentials}"
+            android:onClick="@{() -> connector.updateCredentials()}"
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toEndOf="@id/password"
 
