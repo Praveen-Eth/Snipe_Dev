@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Entity
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
-class LoginPage : AppCompatActivity() {
+class LoginPage : AppCompatActivity(),ActivityStarter {
   lateinit  var binding: ActivityLoginPageBinding
   lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,11 +18,20 @@ class LoginPage : AppCompatActivity() {
         authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         binding.connector = authViewModel
         binding.lifecycleOwner = this
+        authViewModel.setActivityStarter(this)
 
 
 
 
 
+
+
+    }
+
+    //callback function link@ AuthViewModel
+    override fun startSignupActivity() {
+        val intent: Intent  =  Intent(this,SignUpActivity::class.java)
+        startActivity(intent)
 
     }
 }
