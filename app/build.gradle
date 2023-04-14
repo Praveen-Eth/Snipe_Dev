@@ -75,5 +75,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
+    // mongo db realm dependencies
+    implementation 'io.realm.kotlin:library-sync:1.7.0'// Add to use Device Sync
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4' // Add to use coroutines with the SDK
+
 
 }
+
+
+
+
