@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1018601002004",
+    "project_id": "snipedevauth",
+    "storage_bucket": "snipedevauth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018601002004:android:43d0a7a1aa0ad06ba5c301",
+        "android_client_info": {
+          "package_name": "com.augx_universe.snipedev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018601002004-bcdgplgcvjt85kh2i2g12u03g5njt6do.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.augx_universe.snipedev",
+            "certificate_hash": "05e391705c3fcb2d94570b5fc78cf900606617fe"
+          }
+        },
+        {
+          "client_id": "1018601002004-h1gsst5rc6ra4cskvrmefuogrt18irba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv6zyhhBUkVNOxQJx9ZOj6OObphJHInWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018601002004-h1gsst5rc6ra4cskvrmefuogrt18irba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
