@@ -25,7 +25,7 @@ class UserAuthByEmail {
             }
         }
     }
-    fun
+
 
 
 }
