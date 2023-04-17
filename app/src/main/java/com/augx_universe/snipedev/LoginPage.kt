@@ -1,5 +1,6 @@
 package com.augx_universe.snipedev
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,8 @@ class LoginPage : AppCompatActivity(),ActivityStarter {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_login_page)
-        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        authViewModel =  ViewModelProvider(this)
+            .get(AuthViewModel::class.java)
         binding.connector = authViewModel
         binding.lifecycleOwner = this
         authViewModel.setActivityStarter(this)

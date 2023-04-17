@@ -13,17 +13,19 @@ import com.google.firebase.ktx.Firebase
 class UserAuthByEmail {
     private var mAuth: FirebaseAuth  = FirebaseAuth.getInstance()
 
-    fun createNewUser(email: String, password: String,context: Context){
-        mAuth.createUserWithEmailAndPassword(email.toString(),password.toString()).addOnCompleteListener { task ->
+    fun createNewUser(email: String, password: String){
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             if (task.isSuccessful){
 
-                Toast.makeText(context,"Register Successful",Toast.LENGTH_SHORT)
-            }else{
 
-                Toast.makeText(context,"Register Failed try again!",Toast.LENGTH_SHORT)
+                System.out.println("Register sucessful");
+            }else{
+                System.out.println("Register failed");
+
             }
         }
     }
+    fun
 
 
 }
