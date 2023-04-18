@@ -1,31 +1,26 @@
 package com.augx_universe.snipedev.Model
 
-import android.app.AuthenticationRequiredException
-import android.content.Context
-import android.widget.Toast
-import com.augx_universe.snipedev.Listeners.AuthListeners
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.FirebaseApp
-import com.google.firebase.auth.AuthResult
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.ktx.Firebase
 
 
 class UserAuthByEmail {
     private var mAuth: FirebaseAuth  = FirebaseAuth.getInstance()
 
-    fun createNewUser(email: String, password: String): Boolean{
+    fun createNewUser(email: String, password: String):LiveData<Boolean>{
 
-        var isSuccess: Boolean  = false
+        var isSuccess: MutableLiveData<Boolean>  = MutableLiveData<Boolean>()
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            isSuccess = task.isSuccessful
+            isSuccess.postValue(task.isSuccessful)
         }
         return isSuccess
     }
-    fun signInUsingEmailPassword(email: String,password: String): Boolean{
-         var isSuccess: Boolean  = false
+    fun signInUsingEmailPassword(email: String,password: String): MutableLiveData<Boolean>{
+         val isSuccess: MutableLiveData<Boolean>   = MutableLiveData<Boolean>()
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-            isSuccess = task.isSuccessful
+            isSuccess.postValue( task.isSuccessful)
+            System.out.println(isSuccess.postValue(task.isSuccessful));
         }
         return isSuccess
     }

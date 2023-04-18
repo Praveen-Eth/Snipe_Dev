@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.augx_universe.snipedev.Listeners.ActivityStarter
-import com.augx_universe.snipedev.Listeners.AuthListeners
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
 class LoginPage : AppCompatActivity(), ActivityStarter {
@@ -22,14 +22,15 @@ class LoginPage : AppCompatActivity(), ActivityStarter {
         binding.lifecycleOwner = this
         authViewModel.setActivityStarter(this)
 
-        authViewModel.isLoginSuccess.observe(this) { isSuccess ->
+        authViewModel.isLoginSuccess.observe(this, Observer {   isSuccess ->
+
             if (isSuccess) {
-                Toast.makeText(this, "User Authenticated", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "User Authenticated", Toast.LENGTH_SHORT).show()
             }else{
 
-                Toast.makeText(this, "Failed to create new user Try Again Later!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Failed to Authenticate Try Again Later!", Toast.LENGTH_SHORT).show()
             }
-        }
+        })
 
 
     }

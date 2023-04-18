@@ -14,16 +14,16 @@ class AuthViewModel() : ViewModel()
     var password: String? = null
     var database: UserAuthByEmail = UserAuthByEmail()
 
-  private val _isNewUserCreated = MutableLiveData<Boolean>()
+  private var _isNewUserCreated = MutableLiveData<Boolean>()
   val isNewUserCreated: LiveData<Boolean> = _isNewUserCreated
 
-  private val _isLoginSuccess = MutableLiveData<Boolean>()
-  val isLoginSuccess: LiveData<Boolean> = _isLoginSuccess
+  private var _isLoginSuccess = MutableLiveData<Boolean>()
+  var isLoginSuccess: LiveData<Boolean> = _isLoginSuccess
 
     fun updateCredentials(){
 
 
-      database.signInUsingEmailPassword(userName.toString(),password.toString())
+       database.signInUsingEmailPassword(userName.toString(),password.toString()).observeForever { _isLoginSuccess.postValue(it) }
     }
   /**call back function signupIntent() , setActivityStarter() */
     fun signupIntent(){
