@@ -20,7 +20,6 @@ class UserAuthByEmail {
          val isSuccess: MutableLiveData<Boolean>   = MutableLiveData<Boolean>()
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
             isSuccess.postValue( task.isSuccessful)
-            System.out.println(isSuccess.postValue(task.isSuccessful));
         }
         return isSuccess
     }

@@ -26,6 +26,8 @@ class LoginPage : AppCompatActivity(), ActivityStarter {
 
             if (isSuccess) {
                 Toast.makeText(applicationContext, "User Authenticated", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,HomePage::class.java)
+                startActivity(intent)
             }else{
 
                 Toast.makeText(applicationContext, "Failed to Authenticate Try Again Later!", Toast.LENGTH_SHORT).show()

@@ -25,7 +25,7 @@ class AuthViewModel() : ViewModel()
 
        database.signInUsingEmailPassword(userName.toString(),password.toString()).observeForever { _isLoginSuccess.postValue(it) }
     }
-  /**call back function signupIntent() , setActivityStarter() */
+  /**call back function signupIntent()Button , setActivityStarter()method -> is used to set instance in signUpActivity in ViewModel class */
     fun signupIntent(){
       signUpActivity.startSignupActivity()
     }
