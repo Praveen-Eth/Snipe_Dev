@@ -10,7 +10,7 @@ import com.augx_universe.snipedev.Model.UserAuthByEmail
 class AuthViewModel() : ViewModel()
 {
   lateinit var signUpActivity: ActivityStarter
-    var userName: String? = null
+    var emailId: String? = null
     var password: String? = null
     var database: UserAuthByEmail = UserAuthByEmail()
 
@@ -23,8 +23,11 @@ class AuthViewModel() : ViewModel()
     fun updateCredentials(){
 
 
-       database.signInUsingEmailPassword(userName.toString(),password.toString()).observeForever { _isLoginSuccess.postValue(it) }
+       database.signInUsingEmailPassword(emailId.toString(),password.toString()).observeForever { _isLoginSuccess.postValue(it) }
     }
+   fun newUserUpdater(){
+     database.createNewUser(emailId.toString(),password = password.toString()).observeForever{_isNewUserCreated.postValue(it)}
+   }
   /**call back function signupIntent()Button , setActivityStarter()method -> is used to set instance in signUpActivity in ViewModel class */
     fun signupIntent(){
       signUpActivity.startSignupActivity()

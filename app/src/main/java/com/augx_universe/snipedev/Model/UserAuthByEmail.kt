@@ -8,7 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 class UserAuthByEmail {
     private var mAuth: FirebaseAuth  = FirebaseAuth.getInstance()
 
-    fun createNewUser(email: String, password: String):LiveData<Boolean>{
+    fun createNewUser(email: String, password: String):MutableLiveData<Boolean>{
 
         var isSuccess: MutableLiveData<Boolean>  = MutableLiveData<Boolean>()
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
