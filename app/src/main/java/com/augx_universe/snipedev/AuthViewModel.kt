@@ -14,6 +14,7 @@ class AuthViewModel() : ViewModel()
     var password: String? = null
     var database: UserAuthByEmail = UserAuthByEmail()
 
+
   private var _isNewUserCreated = MutableLiveData<Boolean>()
   val isNewUserCreated: LiveData<Boolean> = _isNewUserCreated
 

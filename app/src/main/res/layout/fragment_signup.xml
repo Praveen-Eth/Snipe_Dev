@@ -89,6 +89,18 @@
             app:layout_constraintBottom_toTopOf="@id/password"
             app:layout_constraintStart_toEndOf="@id/guideline2" />
 
+        <ImageView
+            android:id="@+id/monkeyImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_Of_Eth_Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.033"
+            app:layout_constraintStart_toEndOf="@+id/password"
+            app:layout_constraintTop_toBottomOf="@+id/userName"
+            app:layout_constraintVertical_bias="0.19" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/password"
             android:layout_width="200dp"
@@ -97,8 +109,6 @@
             android:layout_marginTop="40dp"
             app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/userName"
-
-
             >
 
             <EditText
@@ -109,20 +119,31 @@
                 android:padding="4dp"
                 android:inputType="textPassword" />
         </androidx.cardview.widget.CardView>
-
         <TextView
+            android:id="@+id/signUpWeakTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eth-20 wallet Adress (Optional)"
+            android:textColor="#F44336"
+
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@id/password"
+            app:layout_constraintBottom_toTopOf="@id/text_Of_Eth_Name"
+            app:layout_constraintStart_toEndOf="@id/guideline2" />
+
+        <TextView
+            android:id="@+id/text_Of_Eth_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eth-20 wallet Address (Optional)"
             app:layout_constraintBottom_toTopOf="@id/eth_address"
             app:layout_constraintStart_toEndOf="@id/guideline2" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/eth_address"
             android:layout_width="300dp"
-            app:cardCornerRadius="8dp"
             android:layout_height="30dp"
             android:layout_marginTop="40dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintStart_toStartOf="@id/guideline2"
             app:layout_constraintTop_toBottomOf="@id/password"
 
@@ -133,8 +154,8 @@
                 android:id="@+id/eth_address_input"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="4dp"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:padding="4dp" />
         </androidx.cardview.widget.CardView>
 
 
