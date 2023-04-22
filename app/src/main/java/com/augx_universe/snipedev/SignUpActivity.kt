@@ -55,7 +55,7 @@ class SignUpActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s != null) {
                     if (s.length <= 6){
-                    weakTextView.text = "Password length not less than 6 characters! "
+                    weakTextView.text = "Password length not less than 6 characters! ";
                         weakTextView.setTextColor(resources.getColor(R.color.red))
                     }
                     else{
