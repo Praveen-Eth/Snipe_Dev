@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Snipe Dev</string>
+    <string name="example_code">\t public static void main (String args){\n Int i = 0; \n\t }</string>
 </resources>

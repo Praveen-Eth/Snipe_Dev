@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
     lateinit var currentUser: FirebaseUser
@@ -17,10 +18,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
             mAuth = FirebaseAuth.getInstance()
-            val executor = Executors.newSingleThreadExecutor()
-        executor.execute {
+            val executor = Executors.newSingleThreadScheduledExecutor()
+        executor.schedule({
             var intent = Intent(this,LoginPage::class.java)
             startActivity(intent)
-        }
+        },3000,TimeUnit.MILLISECONDS)
+
     }
 }
