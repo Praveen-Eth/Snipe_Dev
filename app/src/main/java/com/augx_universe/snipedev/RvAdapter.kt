@@ -22,15 +22,15 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>): RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val feedItem = listOfFeedItems[position]
-        holder.profileImage = feedItem.profileImage
+        holder.profileImage.setImageResource(feedItem.profileImage)
         holder.userName.text = feedItem.userNameText
-        holder.followerCount.text = feedItem.followerCount.toString()
+        holder.followerCount.text = "Follower: "+feedItem.followerCount.toString()
         holder.codeView = feedItem.code
 
     }
     class ViewHolder(ViewItems: View): RecyclerView.ViewHolder(ViewItems){
         var profileImage:CircleImageView = ViewItems.findViewById(R.id.profileImage)
-        var userName: TextView = ViewItems.findViewById(R.id.userName)
+        var userName: TextView = ViewItems.findViewById(R.id.userNameTextView)
         var followerCount : TextView= ViewItems.findViewById(R.id.followersTextView)
         var codeView: CodeView = ViewItems.findViewById(R.id.codeView)
 
