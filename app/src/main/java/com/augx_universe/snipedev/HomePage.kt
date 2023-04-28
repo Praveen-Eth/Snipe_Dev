@@ -4,6 +4,11 @@ import android.animation.ObjectAnimator
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
+import android.view.View
+import android.view.WindowManager
+import android.widget.Adapter
+import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
@@ -31,13 +36,12 @@ class HomePage : AppCompatActivity() {
         feedList = emptyList()
         var codeView:CodeView = CodeView(this)
         val javaKeywords = arrayOf("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while")
-        codeView.addSyntaxPattern(Pattern.compile("\\b(" + javaKeywords.joinToString("|") + ")\\b"), resources.getColor(R.color.javaCodeTheme))
-        val sourceCode = "public class HelloWorld {\n" +
-                "    public static void main(String[] args) {\n" +
-                "        System.out.println(\"Hello, World!\");\n" +
-                "    }\n" +
-                "}"
-        codeView.setText(sourceCode)
+        codeView.addSyntaxPattern(Pattern.compile("\\b(" + javaKeywords.joinToString("|") + ")\\b"), ContextCompat.getColor(applicationContext,R.color.javaCodeTheme))
+        var arrayAdapter = ArrayAdapter<String>(this,R.layout.code_auto_complete,R.id.tv_auto_complete,javaKeywords)
+        codeView.setAdapter(arrayAdapter)
+        codeView.requestFocus()
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+
 
         feedList = feedList+ FeedItem(R.drawable.close_monkey,"monkey king",1000,codeView)
         var adapter: RvAdapter = RvAdapter(feedList)

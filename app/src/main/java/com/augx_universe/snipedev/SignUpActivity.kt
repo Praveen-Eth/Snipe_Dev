@@ -62,7 +62,7 @@ class SignUpActivity : AppCompatActivity() {
                 if (s != null) {
                     if (s.length <= 6){
                     weakTextView.text = "Password length not less than 6 characters! ";
-                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.red))
+                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.red));
                     }
                     else{
                         weakTextView.text = "verified"
