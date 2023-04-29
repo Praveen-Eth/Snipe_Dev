@@ -1,8 +1,10 @@
 package com.augx_universe.snipedev
 
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EdgeEffect
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.amrdeveloper.codeview.CodeView
@@ -25,6 +27,7 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>): RecyclerView.Adapt
         holder.profileImage.setImageResource(feedItem.profileImage)
         holder.userName.text = feedItem.userNameText
         holder.followerCount.text = "Follower: "+feedItem.followerCount.toString()
+
         holder.codeView = feedItem.code
 
     }
