@@ -52,7 +52,7 @@ class HomePage : AppCompatActivity() {
 
 
         feedList = feedList+ FeedItem(R.drawable.close_monkey,"monkey king",1000,codeView)
-        var adapter: RvAdapter = RvAdapter(feedList)
+        var adapter: RvAdapter = RvAdapter(feedList,this)
         binding.feedRecyclerView.adapter = adapter
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(this)
 
