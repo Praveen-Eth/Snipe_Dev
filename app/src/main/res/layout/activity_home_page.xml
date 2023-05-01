@@ -42,13 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/topToolBar" />
-<com.amrdeveloper.codeview.CodeView
-    android:id="@+id/sampleCodeView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toBottomOf="@id/feedRecyclerView"
-    app:layout_constraintStart_toStartOf="parent"
-    />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottom_bar"

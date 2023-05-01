@@ -33,16 +33,7 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>,var appContext: Cont
         holder.userName.text = feedItem.userNameText
         holder.followerCount.text = "Follower: "+feedItem.followerCount.toString()
 
-        val codeView = feedItem.code
-        codeView.apply {
-            var javaKeywords = arrayOf("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while")
-            var arrayAdapter = ArrayAdapter(context,android.R.layout.simple_list_item_1,javaKeywords)
-
-            codeView.setAdapter(arrayAdapter)
-            codeView.addSyntaxPattern(Pattern.compile("\\b(" + javaKeywords.joinToString("|") + ")\\b"), ContextCompat.getColor(context,R.color.javaCodeTheme))
-        }
-        holder.codeView = codeView
-
+        holder.codeView.text = Editable.Factory.getInstance().newEditable( feedItem.code)
     }
     class ViewHolder(ViewItems: View): RecyclerView.ViewHolder(ViewItems){
         var profileImage:CircleImageView = ViewItems.findViewById(R.id.profileImage)

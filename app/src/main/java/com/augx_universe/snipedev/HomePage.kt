@@ -35,24 +35,12 @@ class HomePage : AppCompatActivity() {
         binding.bind = feedViewModel
         binding.lifecycleOwner = this
 
-        feedList = emptyList()
-        var codeView:CodeView = CodeView(applicationContext)
+
+        feedList = emptyArray<FeedItem>().toList()
+
         var exampleCode = getString(R.string.example_code)
-        codeView.text = Editable.Factory.getInstance().newEditable(exampleCode)
-        var javaKeywords = arrayOf("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while")
-        codeView.addSyntaxPattern(Pattern.compile("\\b(" + javaKeywords.joinToString("|") + ")\\b"), ContextCompat.getColor(this,R.color.javaCodeTheme))
-        var arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,javaKeywords)
-
-        codeView.setAdapter(arrayAdapter)
-        codeView.requestFocus()
-        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-
-
-
-
-
-        feedList = feedList+ FeedItem(R.drawable.close_monkey,"monkey king",1000,codeView)
-        var adapter: RvAdapter = RvAdapter(feedList,this)
+         feedList = feedList+(FeedItem(R.drawable.close_monkey,"monkey king",1000,exampleCode))
+        var adapter: RvAdapter = RvAdapter(feedList,applicationContext)
         binding.feedRecyclerView.adapter = adapter
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(this)
 
