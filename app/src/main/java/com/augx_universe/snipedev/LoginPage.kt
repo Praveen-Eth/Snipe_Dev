@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.augx_universe.snipedev.Listeners.ActivityStarter
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
-class LoginPage : AppCompatActivity(), ActivityStarter {
+class LoginPage : AppCompatActivity(){
   lateinit  var binding: ActivityLoginPageBinding
   private lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class LoginPage : AppCompatActivity(), ActivityStarter {
             .get(AuthViewModel::class.java)
         binding.connector = authViewModel
         binding.lifecycleOwner = this
-        authViewModel.setActivityStarter(this)
+
 
         authViewModel.isLoginSuccess.observe(this, Observer {   isSuccess ->
 
@@ -34,15 +34,14 @@ class LoginPage : AppCompatActivity(), ActivityStarter {
             }
         })
 
+        authViewModel.homepageActivityStarter.observe(this, Observer {
+            activityClass -> startActivity(Intent(this,activityClass))
+        })
+
 
     }
 
-    //callback function link@ AuthViewModel
-    override fun startSignupActivity() {
-        val intent: Intent  =  Intent(this,SignUpActivity::class.java)
-        startActivity(intent)
 
-    }
 
 
 }

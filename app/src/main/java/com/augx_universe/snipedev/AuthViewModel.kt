@@ -1,5 +1,6 @@
 package com.augx_universe.snipedev
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,10 +10,12 @@ import com.augx_universe.snipedev.Model.UserAuthByEmail
 //this view model can handle operations of signup and authentication
 class AuthViewModel() : ViewModel()
 {
-  lateinit var signUpActivity: ActivityStarter
+
     var emailId: String? = null
     var password: String? = null
     var database: UserAuthByEmail = UserAuthByEmail()
+    var homepageActivityStarter = MutableLiveData<Class<out AppCompatActivity>>().apply {
+    }
 
 
   private var _isNewUserCreated = MutableLiveData<Boolean>()
@@ -29,15 +32,11 @@ class AuthViewModel() : ViewModel()
    fun newUserUpdater(){
      database.createNewUser(emailId.toString(),password = password.toString()).observeForever{_isNewUserCreated.postValue(it)}
    }
-  /**call back function signupIntent()Button , setActivityStarter()method -> is used to set instance in signUpActivity in ViewModel class */
-    fun signupIntent(){
-      signUpActivity.startSignupActivity()
+
+    fun switchToSignUpActivity(){
+        homepageActivityStarter.value = SignUpActivity::class.java
+
     }
-  fun setActivityStarter(_signUpActivity: ActivityStarter){
-    signUpActivity   = _signUpActivity
-  }
-
-
 
 
 }

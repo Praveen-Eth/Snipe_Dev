@@ -33,13 +33,14 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>,var appContext: Cont
         holder.userName.text = feedItem.userNameText
         holder.followerCount.text = "Follower: "+feedItem.followerCount.toString()
 
-        holder.codeView.text = Editable.Factory.getInstance().newEditable( feedItem.code)
+        holder.codeView.text =  feedItem.code
+
     }
     class ViewHolder(ViewItems: View): RecyclerView.ViewHolder(ViewItems){
         var profileImage:CircleImageView = ViewItems.findViewById(R.id.profileImage)
         var userName: TextView = ViewItems.findViewById(R.id.userNameTextView)
         var followerCount : TextView= ViewItems.findViewById(R.id.followersTextView)
-        var codeView: CodeView = ViewItems.findViewById(R.id.codeView)
+        var codeView: TextView = ViewItems.findViewById(R.id.codeView)
 
     }
 }

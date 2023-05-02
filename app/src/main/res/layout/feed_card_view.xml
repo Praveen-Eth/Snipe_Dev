@@ -48,7 +48,7 @@
         android:layout_marginEnd="4dp"
         android:foreground="@drawable/border"
         >
-        <com.amrdeveloper.codeview.CodeView
+        <TextView
             android:id="@+id/codeView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
