@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev.Activities
+package com.augx_universe.snipedev.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.augx_universe.snipedev.Adapters.RvAdapter
-import com.augx_universe.snipedev.Entities.FeedItem
+import com.augx_universe.snipedev.adapters.RvAdapter
+import com.augx_universe.snipedev.entities.FeedItem
 import com.augx_universe.snipedev.R
-import com.augx_universe.snipedev.ViewModels.FeedViewModel
+import com.augx_universe.snipedev.view_models.FeedViewModel
 import com.augx_universe.snipedev.databinding.ActivityHomePageBinding
 
 class HomePage : AppCompatActivity() {

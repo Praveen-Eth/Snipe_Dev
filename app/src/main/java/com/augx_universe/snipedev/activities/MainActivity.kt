@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev.Activities
+package com.augx_universe.snipedev.activities
 
 import android.content.Intent
 import android.os.Bundle

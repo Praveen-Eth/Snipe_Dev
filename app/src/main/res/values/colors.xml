@@ -11,4 +11,6 @@
     <color name="red">#F44336</color>
     <color name="darkGrey">#373737</color>
     <color name="javaCodeTheme">#FF4081</color>
+    <color name="keyword">#FFD640</color>
+    <color name="primitive_type">#2196F3</color>
 </resources>

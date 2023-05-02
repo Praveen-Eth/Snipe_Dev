@@ -1,6 +1,5 @@
-package com.augx_universe.snipedev.Model
+package com.augx_universe.snipedev.models
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
 

@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev.Activities
+package com.augx_universe.snipedev.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.augx_universe.snipedev.R
-import com.augx_universe.snipedev.ViewModels.AuthViewModel
+import com.augx_universe.snipedev.view_models.AuthViewModel
 import com.augx_universe.snipedev.databinding.FragmentSignupBinding
 
 class SignUpActivity : AppCompatActivity() {
