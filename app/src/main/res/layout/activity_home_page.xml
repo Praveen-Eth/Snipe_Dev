@@ -6,14 +6,14 @@
     <data>
         <variable
             name="bind"
-            type="com.augx_universe.snipedev.FeedViewModel" />
+            type="com.augx_universe.snipedev.ViewModels.FeedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-        tools:context=".HomePage">
+        tools:context=".Activities.HomePage">
 
         <Toolbar
             android:id="@+id/topToolBar"

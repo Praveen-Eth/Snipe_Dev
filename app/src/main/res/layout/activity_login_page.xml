@@ -8,7 +8,7 @@
     <data>
         <variable
             name="connector"
-            type="com.augx_universe.snipedev.AuthViewModel" />
+            type="com.augx_universe.snipedev.ViewModels.AuthViewModel" />
 
     </data>
 
@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:theme="@style/Theme.AppCompat.NoActionBar"
-        tools:context=".LoginPage">
+        tools:context=".Activities.LoginPage">
 
         <ImageView
             android:id="@+id/imageView3"

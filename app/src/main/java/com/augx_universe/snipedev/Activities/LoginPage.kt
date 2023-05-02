@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.augx_universe.snipedev.Listeners.ActivityStarter
+import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.ViewModels.AuthViewModel
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
 
 class LoginPage : AppCompatActivity(){
@@ -15,7 +16,7 @@ class LoginPage : AppCompatActivity(){
   private lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_login_page)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login_page)
         authViewModel =  ViewModelProvider(this)
             .get(AuthViewModel::class.java)
         binding.connector = authViewModel
@@ -26,7 +27,7 @@ class LoginPage : AppCompatActivity(){
 
             if (isSuccess) {
                 Toast.makeText(applicationContext, "User Authenticated", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,HomePage::class.java)
+                val intent = Intent(this, HomePage::class.java)
                 startActivity(intent)
             }else{
 

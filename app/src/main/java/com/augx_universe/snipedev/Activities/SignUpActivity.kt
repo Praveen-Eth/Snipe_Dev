@@ -1,10 +1,8 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.Activities
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PatternMatcher
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -17,9 +15,9 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.ViewModels.AuthViewModel
 import com.augx_universe.snipedev.databinding.FragmentSignupBinding
-import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.EmailAuthCredential
 
 class SignUpActivity : AppCompatActivity() {
     lateinit var binding: FragmentSignupBinding
@@ -33,7 +31,7 @@ class SignUpActivity : AppCompatActivity() {
     val emailPatternMatcher: Regex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+".toRegex();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.fragment_signup)
+        binding = DataBindingUtil.setContentView(this, R.layout.fragment_signup)
         rViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         binding.bind = rViewModel
         binding.lifecycleOwner = this
@@ -41,7 +39,7 @@ class SignUpActivity : AppCompatActivity() {
         rViewModel.isNewUserCreated.observe(this){task ->
             if (task){
                 Toast.makeText(applicationContext,"new User Created",Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,LoginPage::class.java)
+                val intent = Intent(this, LoginPage::class.java)
                 startActivity(intent)
             }else{
 
@@ -62,11 +60,15 @@ class SignUpActivity : AppCompatActivity() {
                 if (s != null) {
                     if (s.length <= 6){
                     weakTextView.text = "Password length not less than 6 characters! ";
-                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.red));
+                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,
+                            R.color.red
+                        ));
                     }
                     else{
                         weakTextView.text = "verified"
-                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.green))
+                        weakTextView.setTextColor(ContextCompat.getColor(applicationContext,
+                            R.color.green
+                        ))
                     }
                 }
             }
@@ -110,11 +112,15 @@ class SignUpActivity : AppCompatActivity() {
                 if (s != null) {
                     if (s.toString().trim().matches(emailPatternMatcher)){
                         weakEmailTextView.text = "valid Email "
-                        weakEmailTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.green))
+                        weakEmailTextView.setTextColor(ContextCompat.getColor(applicationContext,
+                            R.color.green
+                        ))
                     }
                     else{
                         weakEmailTextView.text = "invalid Email"
-                        weakEmailTextView.setTextColor(ContextCompat.getColor(applicationContext,R.color.red))
+                        weakEmailTextView.setTextColor(ContextCompat.getColor(applicationContext,
+                            R.color.red
+                        ))
                     }
                 }
             }

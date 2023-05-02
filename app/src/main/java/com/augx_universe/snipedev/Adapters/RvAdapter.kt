@@ -1,21 +1,16 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.Adapters
 
 import android.content.Context
-import android.provider.Settings.Global.getString
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.EdgeEffect
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.amrdeveloper.codeview.CodeView
+import com.augx_universe.snipedev.Entities.FeedItem
+import com.augx_universe.snipedev.R
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.regex.Pattern
 
-class RvAdapter(private val listOfFeedItems: List<FeedItem>,var appContext: Context): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
+class RvAdapter(private val listOfFeedItems: List<FeedItem>, var appContext: Context): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

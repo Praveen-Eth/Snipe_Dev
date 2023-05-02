@@ -1,26 +1,16 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.Activities
 
-import android.animation.ObjectAnimator
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.Layout
-import android.view.View
-import android.view.WindowManager
-import android.widget.Adapter
-import android.widget.ArrayAdapter
-import android.widget.ImageButton
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.amrdeveloper.codeview.Code
-import com.amrdeveloper.codeview.CodeView
+import com.augx_universe.snipedev.Adapters.RvAdapter
+import com.augx_universe.snipedev.Entities.FeedItem
+import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.ViewModels.FeedViewModel
 import com.augx_universe.snipedev.databinding.ActivityHomePageBinding
-import com.google.firebase.auth.FederatedAuthProvider
-import java.util.regex.Pattern
 
 class HomePage : AppCompatActivity() {
     lateinit var binding: ActivityHomePageBinding
@@ -30,7 +20,7 @@ class HomePage : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_home_page)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_home_page)
         feedViewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
         binding.bind = feedViewModel
         binding.lifecycleOwner = this

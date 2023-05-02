@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.Entities
 
 
 import android.widget.TextView

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="bind"
-            type="com.augx_universe.snipedev.AuthViewModel" />
+            type="com.augx_universe.snipedev.ViewModels.AuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

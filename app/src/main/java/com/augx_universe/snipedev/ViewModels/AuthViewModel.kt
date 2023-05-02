@@ -1,11 +1,11 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.ViewModels
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.augx_universe.snipedev.Listeners.ActivityStarter
 import com.augx_universe.snipedev.Model.UserAuthByEmail
+import com.augx_universe.snipedev.Activities.SignUpActivity
 
 //this view model can handle operations of signup and authentication
 class AuthViewModel() : ViewModel()

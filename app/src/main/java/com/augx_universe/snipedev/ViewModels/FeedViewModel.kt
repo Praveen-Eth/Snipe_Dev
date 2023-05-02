@@ -1,4 +1,4 @@
-package com.augx_universe.snipedev
+package com.augx_universe.snipedev.ViewModels
 
 import android.widget.Adapter
 import androidx.lifecycle.ViewModel
