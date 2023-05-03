@@ -34,90 +34,43 @@
 
         </Toolbar>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/feedRecyclerView"
+        <FrameLayout
+            android:id="@+id/fragment_container_homePage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="@+id/navigation_bar_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/topToolBar" />
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp"
+            app:layout_constraintTop_toBottomOf="@id/topToolBar">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_margin="4dp"
-            android:layout_marginBottom="4dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/border_for_cardview"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/feedTextView"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feedRecyclerView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="       Feed    "
-                android:textColor="@color/black"
-                android:textStyle="italic"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/splitLine1"
+                android:layout_margin="10dp"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+
+
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="parent" />
 
-            <TextView
-                android:id="@+id/communityTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Community"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/splitLine2"
-                app:layout_constraintStart_toEndOf="@id/splitLine1"
-                app:layout_constraintTop_toTopOf="parent" />
+        </FrameLayout>
 
-            <TextView
-                android:id="@+id/myPostTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="My Post"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/splitLine2"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigation_bar_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_nav_menu_home_page"
+            android:background="@drawable/border_navigation"
 
-            <View
-                android:id="@+id/splitLine1"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:foreground="@color/black"
-                app:layout_constraintEnd_toEndOf="@id/communityTextView"
-                app:layout_constraintEnd_toStartOf="@+id/communityTextView"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/feedTextView" />
+            />
 
-            <View
-                android:id="@+id/splitLine2"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:foreground="@color/black"
-
-
-                app:layout_constraintEnd_toEndOf="@id/myPostTextView"
-                app:layout_constraintStart_toEndOf="@id/communityTextView" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

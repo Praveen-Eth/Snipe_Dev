@@ -33,30 +33,6 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>, var appContext: Con
         holder.followerCount.text = "Follower: "+feedItem.followerCount.toString()
 
         holder.codeView.text =  feedItem.code
-        val javaKeywords = arrayOf("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while")
-        var codeView : CodeView = CodeView(appContext)
-
-        val javaColorPattern = arrayOf(
-            R.color.keyword, R.color.keyword, R.color.primitive_type, R.color.keyword, R.color.primitive_type,
-            R.color.keyword, R.color.keyword, R.color.primitive_type, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.primitive_type, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.primitive_type,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.primitive_type, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword, R.color.keyword,
-            R.color.keyword, R.color.keyword, R.color.keyword
-        )
-
-        for (i in javaKeywords.indices) {
-            codeView.addSyntaxPattern(
-                Pattern.compile("\\b" + javaKeywords[i] + "\\b"),
-                ContextCompat.getColor(appContext, javaColorPattern[i])
-            )
-        }
-        holder.codeView.setTextColor(codeView.textColors)
 
     }
     class ViewHolder(ViewItems: View): RecyclerView.ViewHolder(ViewItems){
