@@ -2,7 +2,9 @@ package com.augx_universe.snipedev.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,8 +17,7 @@ import com.augx_universe.snipedev.databinding.ActivityHomePageBinding
 class HomePage : AppCompatActivity() {
     lateinit var binding: ActivityHomePageBinding
     private lateinit var feedViewModel: FeedViewModel
-    lateinit var recyclerView:RecyclerView
-    lateinit var feedList: List<FeedItem>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,26 +27,46 @@ class HomePage : AppCompatActivity() {
         binding.lifecycleOwner = this
 
 
-        feedList = emptyArray<FeedItem>().toList()
+        binding.navigationBarBottom.setOnItemSelectedListener {item ->
+            when(item.itemId){
+                R.id.home_feed ->
+                {    loadFragment(R.id.fragment_container_homePage,HomePageFeed())
+                        true
+                }
+                R.id.search_bar -> {
+                    loadFragment(R.id.fragment_container_homePage,SearchBar())
+                        true
+                }
+                R.id.add_post -> {
+                    loadFragment(R.id.fragment_container_homePage,SearchBar())
+                    true
+                }
+                R.id.saved_post -> {
+                loadFragment(R.id.fragment_container_homePage,SearchBar())
+                true
+            }
+                R.id.profile -> {
+                loadFragment(R.id.fragment_container_homePage,SearchBar())
+                true
+            }
 
-        var exampleCode = getString(R.string.example_code)
-         feedList = feedList+(FeedItem(R.drawable.close_monkey,"monkey king",1000,exampleCode))
-        var adapter: RvAdapter = RvAdapter(feedList,applicationContext)
-        binding.feedRecyclerView.adapter = adapter
-        binding.feedRecyclerView.layoutManager = LinearLayoutManager(this)
+                else -> {
+                        Toast.makeText(this,"invalid item",Toast.LENGTH_SHORT).show()
+                    false
+                }
+            }
+
+        }
 
 
 
 
 
 
-
-
-
-
-
-
-
-
+    }
+    fun loadFragment(container: Int,fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(container,fragment)
+        transaction.commit()
     }
 }
