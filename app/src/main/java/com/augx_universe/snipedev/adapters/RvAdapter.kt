@@ -14,7 +14,7 @@ import com.augx_universe.snipedev.R
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.regex.Pattern
 
-class RvAdapter(private val listOfFeedItems: List<FeedItem>, var appContext: Context): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
+class RvAdapter(private val listOfFeedItems: List<FeedItem>): RecyclerView.Adapter<RvAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,12 +34,15 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>, var appContext: Con
 
         holder.codeView.text =  feedItem.code
 
+
+
     }
     class ViewHolder(ViewItems: View): RecyclerView.ViewHolder(ViewItems){
         var profileImage:CircleImageView = ViewItems.findViewById(R.id.profileImage)
         var userName: TextView = ViewItems.findViewById(R.id.userNameTextView)
         var followerCount : TextView= ViewItems.findViewById(R.id.followersTextView)
         var codeView: TextView = ViewItems.findViewById(R.id.codeView)
+
 
     }
 }

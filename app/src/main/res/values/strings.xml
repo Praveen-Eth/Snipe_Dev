@@ -3,26 +3,26 @@
     <string name="example_code">\t public static void main (String args){\n Int i = 0; \n\t }</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="example_code_2">"class MyFragment : Fragment() {\n" +
-                "    private lateinit var binding: FragmentMyFragmentBinding\n" +
-                "\n" +
-                "    override fun onCreateView(\n" +
-                "        inflater: LayoutInflater,\n" +
-                "        container: ViewGroup?,\n" +
-                "        savedInstanceState: Bundle?\n" +
-                "    ): View {\n" +
-                "        binding = FragmentMyFragmentBinding.inflate(inflater, container, false)\n" +
-                "\n" +
-                "        // Programmatically create a TextView\n" +
-                "        val textView = TextView(requireContext())\n" +
-                "        textView.text = \"Hello World!\"\n" +
-                "        textView.textSize = 24f\n" +
-                "        textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))\n" +
-                "\n" +
-                "        // Add the TextView to the layout\n" +
-                "        binding.myLayout.addView(textView)\n" +
-                "\n" +
-                "        return binding.root\n" +
-                "    }\n" +
+    <string name="example_code_2">"class MyFragment : Fragment() {\n"
+                "    private lateinit var binding: FragmentMyFragmentBinding\n"
+                "\n"
+                "    override fun onCreateView(\n"
+                "        inflater: LayoutInflater,\n"
+                "        container: ViewGroup?,\n"
+                "        savedInstanceState: Bundle?\n"
+                "    ): View {\n"
+                "        binding = FragmentMyFragmentBinding.inflate(inflater, container, false)\n"
+                "\n"
+                "        // Programmatically create a TextView\n"
+                "        val textView = TextView(requireContext())\n"
+                "        textView.text = \"Hello World!\"\n"
+                "        textView.textSize = 24f\n"
+                "        textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))\n"
+                "\n"
+                "        // Add the TextView to the layout\n"
+                "        binding.myLayout.addView(textView)\n"
+                "\n"
+                "        return binding.root\n"
+                "    }\n"
                 "}"</string>
 </resources>

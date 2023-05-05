@@ -48,7 +48,7 @@
         android:layout_marginEnd="4dp"
         android:foreground="@drawable/border"
         >
-        <TextView
+        <com.amrdeveloper.codeview.CodeView
             android:id="@+id/codeView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,6 +59,9 @@
             android:dropDownHorizontalOffset="0dp"
             android:dropDownSelector="@color/darkGrey"
             android:gravity="top|start"
+            android:inputType="none"
+            android:textColorHighlight="@color/javaCodeTheme"
+
             />
 
     </androidx.cardview.widget.CardView>

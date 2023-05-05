@@ -35,23 +35,13 @@ class HomePageFeed : Fragment() {
         feedViewModel = ViewModelProvider(requireActivity()).get(FeedViewModel::class.java)
         binding.bind = feedViewModel
 
-        feedList.plus(FeedItem(R.drawable.open_monkey,"Monkey king",1200, getString(R.string.example_code)))
-        feedList.plus(FeedItem(R.drawable.close_monkey,"Monkey queen",900, getString(R.string.example_code_2)))
+        feedList = feedList.plus(FeedItem(R.drawable.open_monkey,"Monkey king",1200, getString(R.string.example_code)))
+       feedList =  feedList.plus(FeedItem(R.drawable.close_monkey,"Monkey queen",900, getString(R.string.example_code_2)))
 
-        var adapter = RvAdapter(feedList,requireContext())
-        binding.feedRecyclerView.adapter =adapter
+        binding.feedRecyclerView.adapter = RvAdapter(feedList)
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-       super.onViewCreated(view, savedInstanceState)
-
-
-
-
-
     }
 
 

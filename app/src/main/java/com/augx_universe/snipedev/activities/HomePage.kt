@@ -2,6 +2,7 @@ package com.augx_universe.snipedev.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -13,10 +14,14 @@ import com.augx_universe.snipedev.entities.FeedItem
 import com.augx_universe.snipedev.R
 import com.augx_universe.snipedev.view_models.FeedViewModel
 import com.augx_universe.snipedev.databinding.ActivityHomePageBinding
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
 
 class HomePage : AppCompatActivity() {
     lateinit var binding: ActivityHomePageBinding
     private lateinit var feedViewModel: FeedViewModel
+    var doubleClickToExitFlag = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +30,12 @@ class HomePage : AppCompatActivity() {
         feedViewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
         binding.bind = feedViewModel
         binding.lifecycleOwner = this
+            loadFragment(R.id.fragment_container_homePage,HomePageFeed())
 
 
-        binding.navigationBarBottom.setOnItemSelectedListener {item ->
+
+
+            binding.navigationBarBottom.setOnItemSelectedListener {item ->
             when(item.itemId){
                 R.id.home_feed ->
                 {    loadFragment(R.id.fragment_container_homePage,HomePageFeed())
@@ -68,5 +76,20 @@ class HomePage : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(container,fragment)
         transaction.commit()
+    }
+
+    override fun onBackPressed() {
+        if(doubleClickToExitFlag){
+            super.getOnBackPressedDispatcher().onBackPressed()
+            return
+        }
+        this.doubleClickToExitFlag = true
+        Toast.makeText(this,"Press once again to exit!",Toast.LENGTH_SHORT).show()
+        val executor = Executors.newSingleThreadScheduledExecutor()
+        executor.schedule({
+            this.doubleClickToExitFlag = false
+        },2000,TimeUnit.MILLISECONDS)
+
+
     }
 }
