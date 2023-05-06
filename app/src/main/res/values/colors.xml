@@ -9,8 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#00B307</color>
     <color name="red">#F44336</color>
+    <color name="orange">#FF3D00</color>
     <color name="darkGrey">#373737</color>
     <color name="javaCodeTheme">#FF4081</color>
     <color name="keyword">#FFD640</color>
     <color name="primitive_type">#2196F3</color>
+    <color name="purple">#651FFF</color>
+    <color name="dark_green">#1F5C21</color>
 </resources>

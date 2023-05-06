@@ -54,13 +54,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
 
-            android:background="#4E4E4E"
+            android:background="@color/white"
             android:dropDownWidth="150dp"
             android:dropDownHorizontalOffset="0dp"
-            android:dropDownSelector="@color/darkGrey"
+            android:dropDownSelector="@color/white"
             android:gravity="top|start"
             android:inputType="none"
-            android:textColorHighlight="@color/javaCodeTheme"
 
             />
 

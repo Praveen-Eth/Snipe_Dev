@@ -29,8 +29,8 @@ class HomePage : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_page)
         feedViewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
         binding.bind = feedViewModel
-        binding.lifecycleOwner = this
-            loadFragment(R.id.fragment_container_homePage,HomePageFeed())
+        binding.lifecycleOwner = this;
+        loadFragment(R.id.fragment_container_homePage,HomePageFeed())
 
 
 

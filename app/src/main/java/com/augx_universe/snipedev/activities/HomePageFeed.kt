@@ -38,7 +38,7 @@ class HomePageFeed : Fragment() {
         feedList = feedList.plus(FeedItem(R.drawable.open_monkey,"Monkey king",1200, getString(R.string.example_code)))
        feedList =  feedList.plus(FeedItem(R.drawable.close_monkey,"Monkey queen",900, getString(R.string.example_code_2)))
 
-        binding.feedRecyclerView.adapter = RvAdapter(feedList)
+        binding.feedRecyclerView.adapter = RvAdapter(feedList,requireContext())
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root
