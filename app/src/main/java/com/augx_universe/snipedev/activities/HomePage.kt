@@ -35,6 +35,7 @@ class HomePage : AppCompatActivity() {
 
 
 
+
             binding.navigationBarBottom.setOnItemSelectedListener {item ->
             when(item.itemId){
                 R.id.home_feed ->
@@ -76,6 +77,7 @@ class HomePage : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(container,fragment)
         transaction.commit()
+
     }
 
     override fun onBackPressed() {
@@ -92,4 +94,5 @@ class HomePage : AppCompatActivity() {
 
 
     }
+
 }

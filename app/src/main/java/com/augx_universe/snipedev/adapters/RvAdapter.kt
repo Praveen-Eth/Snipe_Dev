@@ -26,6 +26,7 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>,val context: Context
     }
 
     override fun getItemCount(): Int {
+
         return listOfFeedItems.size
     }
 
@@ -54,7 +55,7 @@ class RvAdapter(private val listOfFeedItems: List<FeedItem>,val context: Context
             )
 
             addSyntaxPattern(
-                Pattern.compile("\\b(package|import)\\b"),
+                Pattern.compile("\\b(package|import|override)\\b"),
                 ContextCompat.getColor(context, R.color.dark_green)
             )
 

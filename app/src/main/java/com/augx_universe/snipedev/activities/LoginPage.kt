@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.augx_universe.snipedev.R
 import com.augx_universe.snipedev.view_models.AuthViewModel
 import com.augx_universe.snipedev.databinding.ActivityLoginPageBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginPage : AppCompatActivity(){
   lateinit  var binding: ActivityLoginPageBinding
@@ -40,6 +41,17 @@ class LoginPage : AppCompatActivity(){
         })
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val user  = FirebaseAuth.getInstance().currentUser
+        if (user!=null){
+            startActivity(Intent(this,HomePage::class.java))
+        }
+        else{
+            System.out.println("user cant detected , log new one!");
+        }
     }
 
 
