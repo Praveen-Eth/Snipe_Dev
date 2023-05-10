@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     tools:context=".activities.AddPostFragment">
 
 
@@ -12,12 +13,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toStartOf="parent"
         >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            android:src="@drawable/code_editor_logo"
+            android:background="@color/black"
+            />
 
     <com.amrdeveloper.codeview.CodeView
+        android:id="@+id/add_post_codeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+
+
+
 
         />
     </androidx.cardview.widget.CardView>

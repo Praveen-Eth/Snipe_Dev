@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         executor.schedule({
             var intent = Intent(this, LoginPage::class.java)
             startActivity(intent)
-        },3000,TimeUnit.MILLISECONDS)
+        },800,TimeUnit.MILLISECONDS)
 
     }
 }

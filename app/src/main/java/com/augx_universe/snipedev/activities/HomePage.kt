@@ -32,10 +32,6 @@ class HomePage : AppCompatActivity() {
         binding.lifecycleOwner = this;
         loadFragment(R.id.fragment_container_homePage,HomePageFeed())
 
-
-
-
-
             binding.navigationBarBottom.setOnItemSelectedListener {item ->
             when(item.itemId){
                 R.id.home_feed ->
@@ -47,7 +43,7 @@ class HomePage : AppCompatActivity() {
                         true
                 }
                 R.id.add_post -> {
-                    loadFragment(R.id.fragment_container_homePage,SearchBar())
+                    loadFragment(R.id.fragment_container_homePage,AddPostFragment())
                     true
                 }
                 R.id.saved_post -> {
