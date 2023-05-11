@@ -1,41 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gradient_background"
+        android:scaleType="centerCrop" />
+    <com.augx_universe.snipedev.libs.BlurLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/add_post_constraint"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     tools:context=".activities.AddPostFragment">
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/codeView_addPost_cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="50dp"
             android:layout_height="20dp"
-            android:src="@drawable/code_editor_logo"
             android:background="@color/black"
+            android:src="@drawable/code_editor_logo" />
+
+        <com.amrdeveloper.codeview.CodeView
+            android:id="@+id/add_post_codeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            android:textColor="@color/white"
+
+
             />
 
-    <com.amrdeveloper.codeview.CodeView
-        android:id="@+id/add_post_codeView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-
-
-
-
-        />
     </androidx.cardview.widget.CardView>
 
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.augx_universe.snipedev.libs.BlurLayout>
+    <Button
+        android:id="@+id/upload_post_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="post"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

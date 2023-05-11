@@ -3,6 +3,7 @@ package com.augx_universe.snipedev.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -69,6 +70,8 @@ class HomePage : AppCompatActivity() {
 
 
     }
+
+
     fun loadFragment(container: Int,fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(container,fragment)
