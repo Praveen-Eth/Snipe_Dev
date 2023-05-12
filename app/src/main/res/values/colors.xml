@@ -16,4 +16,6 @@
     <color name="primitive_type">#2196F3</color>
     <color name="purple">#651FFF</color>
     <color name="dark_green">#1F5C21</color>
+    <color name="mirage_black">#181d2d</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -9,13 +9,17 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/gradient_background"
+        android:src="@drawable/background_image"
         android:scaleType="centerCrop" />
-    <com.augx_universe.snipedev.libs.BlurLayout
+    <io.alterac.blurkit.BlurLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:blk_fps="0"
+        app:blk_blurRadius="3"
+        app:blk_downscaleFactor="0.12"
+
         >
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,6 +28,7 @@
     android:layout_height="wrap_content"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
+    android:background="#27000000"
     android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
     tools:context=".activities.AddPostFragment">
 
@@ -33,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:background="#7F000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -47,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:background="@color/black"
+            android:background="#7F000000"
             android:textColor="@color/white"
 
 
@@ -58,7 +64,7 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.augx_universe.snipedev.libs.BlurLayout>
+    </io.alterac.blurkit.BlurLayout>
     <Button
         android:id="@+id/upload_post_button"
         android:layout_width="wrap_content"
