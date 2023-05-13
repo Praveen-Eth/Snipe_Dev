@@ -1,0 +1,60 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n    id 'org.jetbrains.kotlin.android'\r\n    id 'kotlin-kapt'\r\n    id 'io.realm.kotlin' version '1.7.0' apply false\r\n\r\n    id 'com.google.gms.google-services'\r\n\r\n}\r\n\r\nandroid {\r\n    namespace 'com.augx_universe.snipedev'\r\n    compileSdk 33\r\n\r\n// other plugins\r\n\r\n    defaultConfig {\r\n        applicationId \"com.augx_universe.snipedev\"\r\n        minSdk 21\r\n        targetSdk 33\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n\r\n\r\n    }\r\n\r\n    configurations {\r\n        implementation.exclude module: 'kotlin-stdlib-jdk8'\r\n        implementation.exclude module: 'kotlin-stdlib-jdk7'\r\n    }\r\n\r\n    configurations.all {\r\n        resolutionStrategy {\r\n            force 'org.jetbrains.kotlin:kotlin-stdlib:1.8.0'\r\n        }\r\n    }\r\n\r\n\r\n\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n\r\n    buildFeatures{\r\n        dataBinding true\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n    kotlinOptions {\r\n        jvmTarget = '1.8'\r\n    }\r\n    buildToolsVersion '33.0.1'\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.core:core-ktx:1.10.0'\r\n    implementation 'androidx.appcompat:appcompat:1.6.1'\r\n    implementation 'com.google.android.material:material:1.8.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'\r\n    implementation 'com.google.firebase:firebase-auth:21.3.0'\r\n    implementation 'androidx.core:core-ktx:1.10.0'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.5'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'\r\n    def room_version = \"2.5.0\"\r\n    implementation(\"androidx.room:room-runtime:$room_version\")\r\n    kapt(\"androidx.room:room-compiler:$room_version\")\r\n    // To use Kotlin Symbol Processing (KSP)\r\n\r\n    // optional - Kotlin Extensions and Coroutines support for Room\r\n    implementation(\"androidx.room:room-ktx:$room_version\")\r\n\r\n    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'\r\n    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'\r\n\r\n    // mongo db realm dependencies\r\n    implementation 'io.realm.kotlin:library-sync:1.7.0'// Add to use Device Sync\r\n    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4' // Add to use coroutines with the SDK\r\n\r\n    // Import the Firebase BoM\r\n    implementation platform('com.google.firebase:firebase-bom:31.5.0')\r\n\r\n\r\n    // TODO: Add the dependencies for Firebase products you want to use\r\n    // When using the BoM, don't specify versions in Firebase dependencies\r\n    implementation 'com.google.firebase:firebase-analytics-ktx'\r\n    implementation 'androidx.biometric:biometric:1.1.0'\r\n    implementation 'de.hdodenhof:circleimageview:3.1.0'\r\n    implementation 'io.github.amrdeveloper:codeview:1.3.8'\r\n    implementation 'androidx.recyclerview:recyclerview:1.2.0'\r\n\r\n    implementation 'com.squareup.picasso:picasso:2.5.0'\r\n    implementation 'io.alterac.blurkit:blurkit:1.1.0'\r\n\r\n\r\n\r\n    // Add the dependencies for any other desired Firebase products\r\n    // https://firebase.google.com/docs/android/setup#available-libraries\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision ca11df8a3d1ba5f00621deb92069e7720206bdb2)
++++ b/app/build.gradle	(date 1683882296642)
+@@ -67,7 +67,7 @@
+     implementation 'com.google.android.material:material:1.8.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+     implementation 'com.google.firebase:firebase-auth:21.3.0'
+-    implementation 'androidx.core:core-ktx:1.10.0'
++
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    ext {\r\n        kotlin_version = '1.8.20'\r\n    }\r\n    repositories {\r\n        // Make sure that you have the following two repositories\r\n        google()  // Google's Maven repository\r\n        jcenter()\r\n        mavenCentral()  // Maven Central repository\r\n        maven { url 'https://jitpack.io' }\r\n\r\n\r\n    }\r\n\r\n    dependencies {\r\n\r\n        // Add the dependency for the Google services Gradle plugin\r\n        classpath 'com.google.gms:google-services:4.3.15'\r\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\r\n\r\n    }\r\n}\r\n\r\nplugins {\r\n\r\n    id 'com.android.application' version '7.4.2' apply false\r\n    id 'com.android.library' version '7.4.2' apply false\r\n    id 'org.jetbrains.kotlin.android' version '1.7.20' apply false\r\n}\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision ca11df8a3d1ba5f00621deb92069e7720206bdb2)
++++ b/build.gradle	(date 1683882316282)
+@@ -6,9 +6,9 @@
+     repositories {
+         // Make sure that you have the following two repositories
+         google()  // Google's Maven repository
+-        jcenter()
+         mavenCentral()  // Maven Central repository
+         maven { url 'https://jitpack.io' }
++        jcenter()
+ 
+ 
+     }
+Index: settings.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>pluginManagement {\r\n    repositories {\r\n        gradlePluginPortal()\r\n        google()\r\n        jcenter()\r\n        mavenCentral()\r\n    }\r\n}\r\n\r\ndependencyResolutionManagement {\r\n    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n    }\r\n}\r\n\r\nrootProject.name = \"Snipe Dev\"\r\ninclude ':app'
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/settings.gradle b/settings.gradle
+--- a/settings.gradle	(revision ca11df8a3d1ba5f00621deb92069e7720206bdb2)
++++ b/settings.gradle	(date 1683882316277)
+@@ -2,8 +2,8 @@
+     repositories {
+         gradlePluginPortal()
+         google()
+-        jcenter()
+         mavenCentral()
++        jcenter()
+     }
+ }
+ 
