@@ -1,5 +1,6 @@
 package com.augx_universe.snipedev.activities
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -10,13 +11,13 @@ import android.view.View
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.FrameLayout
+import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
 import com.amrdeveloper.codeview.CodeView
 import com.augx_universe.snipedev.R
 
 class AddPostFragment : Fragment() {
-
-
 
 
     override fun onCreateView(
@@ -26,8 +27,59 @@ class AddPostFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view = inflater.inflate(R.layout.fragment_add_post, container, false)
-        var codeView = view.findViewById<CodeView>(R.id.add_post_codeView)
-        var  languageKeywords = arrayListOf<String>("abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "const", "continue", "default", "do", "double", "else", "enum", "extends", "final", "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int", "interface", "long", "native", "new", "package", "private", "protected", "public", "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this", "throw", "throws", "transient", "try", "void", "volatile", "while")
+        var codeView = view.findViewById<CodeView>(R.id.add_post_code_view)
+        var languageKeywords = arrayListOf<String>(
+            "abstract",
+            "assert",
+            "boolean",
+            "break",
+            "byte",
+            "case",
+            "catch",
+            "char",
+            "class",
+            "const",
+            "continue",
+            "default",
+            "do",
+            "double",
+            "else",
+            "enum",
+            "extends",
+            "final",
+            "finally",
+            "float",
+            "for",
+            "goto",
+            "if",
+            "implements",
+            "import",
+            "instanceof",
+            "int",
+            "interface",
+            "long",
+            "native",
+            "new",
+            "package",
+            "private",
+            "protected",
+            "public",
+            "return",
+            "short",
+            "static",
+            "strictfp",
+            "super",
+            "switch",
+            "synchronized",
+            "this",
+            "throw",
+            "throws",
+            "transient",
+            "try",
+            "void",
+            "volatile",
+            "while"
+        )
 
         var layoutId = android.R.layout.simple_list_item_1
         var viewId = android.R.id.text1
@@ -36,10 +88,10 @@ class AddPostFragment : Fragment() {
 
         codeView.setAdapter(adapter)
 
-        view.setOnTouchListener(object : OnTouchListener{
+        view.setOnTouchListener(object : OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if (event != null) {
-                    when(event.action){
+                    when (event.action) {
                         MotionEvent.ACTION_DOWN -> {
                             val text = codeView.text.toString()
                             val lastWord = text.split("\\W+".toRegex()).lastOrNull() ?: ""
@@ -58,15 +110,22 @@ class AddPostFragment : Fragment() {
         })
 
 
-        return  view.rootView
+        return view.rootView
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var codeView = view.findViewById<CodeView>(R.id.add_post_code_view)
+        var camera = view.findViewById<ImageView>(R.id.snapshot_with_camera)
+        var postPreview = view.findViewById<FrameLayout>(R.id.post_preview)
+        postPreview.setOnClickListener {
+            codeView.visibility = View.VISIBLE
+            postPreview.visibility = View.GONE
+        }
 
 
-
-
-
+    }
 }
 
 private fun Editable.append(filterKeyword: List<String>) {
