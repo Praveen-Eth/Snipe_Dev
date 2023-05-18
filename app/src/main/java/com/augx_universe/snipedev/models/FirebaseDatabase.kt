@@ -9,7 +9,7 @@ import kotlinx.coroutines.tasks.await
 
 class FirebaseDatabase {
 
-    var currentUser  = FirebaseAuth.getInstance().currentUser!!
+    var currentUser  = FirebaseAuth.getInstance().currentUser?.uid
     var fireStoreRef = Firebase.firestore.collection("posts").document(currentUser.toString())
 
 
@@ -17,7 +17,7 @@ class FirebaseDatabase {
         var isSuccess = MutableLiveData<Boolean>()
 
 
-            fireStoreRef.set(feed).addOnCompleteListener {task-> isSuccess.postValue(task.isSuccessful) }
+        fireStoreRef.set(feed).addOnCompleteListener {task-> isSuccess.postValue(task.isSuccessful) }
             return isSuccess
 
 
