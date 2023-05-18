@@ -13,11 +13,22 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.amrdeveloper.codeview.CodeView
 import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.databinding.FragmentAddPostBinding
+import com.augx_universe.snipedev.entities.GoSyntaxManager
+import com.augx_universe.snipedev.view_models.FeedViewModel
 
 class AddPostFragment : Fragment() {
+
+    private lateinit var feedViewModel: FeedViewModel
+    private lateinit var binding: FragmentAddPostBinding
 
 
     override fun onCreateView(
@@ -26,59 +37,25 @@ class AddPostFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val view = inflater.inflate(R.layout.fragment_add_post, container, false)
-        var codeView = view.findViewById<CodeView>(R.id.add_post_code_view)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_add_post, container, false)
+        feedViewModel = ViewModelProvider(this).get(FeedViewModel::class.java)
+        binding.bind = feedViewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        var codeView = binding.addPostCodeView
+
+
+        GoSyntaxManager.applyMonokaiTheme(requireContext(),codeView)
+
         var languageKeywords = arrayListOf<String>(
-            "abstract",
-            "assert",
-            "boolean",
-            "break",
-            "byte",
-            "case",
-            "catch",
-            "char",
-            "class",
-            "const",
-            "continue",
-            "default",
-            "do",
-            "double",
-            "else",
-            "enum",
-            "extends",
-            "final",
-            "finally",
-            "float",
-            "for",
-            "goto",
-            "if",
-            "implements",
-            "import",
-            "instanceof",
-            "int",
-            "interface",
-            "long",
-            "native",
-            "new",
-            "package",
-            "private",
-            "protected",
-            "public",
-            "return",
-            "short",
-            "static",
-            "strictfp",
-            "super",
-            "switch",
-            "synchronized",
-            "this",
-            "throw",
-            "throws",
-            "transient",
-            "try",
-            "void",
-            "volatile",
-            "while"
+            "abstract", "annotation", "as", "break", "by", "catch", "class", "companion", "const",
+            "constructor", "continue", "crossinline", "data", "do", "else", "enum", "expect",
+            "external", "false", "final", "finally", "for", "fun", "get", "if", "import", "in",
+            "infix", "init", "inline", "inner", "interface", "internal", "is", "lateinit", "line",
+            "noinline", "null", "object", "open", "operator", "out", "override", "package",
+            "param", "private", "property", "protected", "public", "receiver", "reified", "return",
+            "sealed", "set", "super", "suspend", "tailrec", "this", "throw", "true", "try", "typealias",
+            "typeof", "val", "var", "vararg", "when", "where", "while"
         )
 
         var layoutId = android.R.layout.simple_list_item_1
@@ -88,41 +65,28 @@ class AddPostFragment : Fragment() {
 
         codeView.setAdapter(adapter)
 
-        view.setOnTouchListener(object : OnTouchListener {
-            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-                if (event != null) {
-                    when (event.action) {
-                        MotionEvent.ACTION_DOWN -> {
-                            val text = codeView.text.toString()
-                            val lastWord = text.split("\\W+".toRegex()).lastOrNull() ?: ""
-                            val filterKeyword = languageKeywords.filter { it.startsWith(lastWord) }
-                            codeView.text.append(filterKeyword)
-                            true
-                        }
-
-                    }
-
-                }
-                return false
-
-            }
-
-        })
 
 
-        return view.rootView
+
+
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var codeView = view.findViewById<CodeView>(R.id.add_post_code_view)
-        var camera = view.findViewById<ImageView>(R.id.snapshot_with_camera)
-        var postPreview = view.findViewById<FrameLayout>(R.id.post_preview)
+        var codeView =binding.addPostCodeView
+        var camera =binding.snapshotWithCamera
+        var postPreview =binding.postPreview
         postPreview.setOnClickListener {
             codeView.visibility = View.VISIBLE
             postPreview.visibility = View.GONE
         }
+
+        feedViewModel.isFeedUploaded.observe(viewLifecycleOwner, Observer { isSuccess ->
+            Toast.makeText(requireContext(),"feedUploaded",Toast.LENGTH_SHORT).show()
+
+        })
 
 
     }

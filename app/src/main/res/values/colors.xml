@@ -18,4 +18,13 @@
     <color name="dark_green">#1F5C21</color>
     <color name="mirage_black">#181d2d</color>
     <color name="transparent">#00000000</color>
+    <color name="monokia_pro_black">#A2A2A2</color>
+    <color name="monokia_pro_purple">#D500F9</color>
+    <color name="monokia_pro_green">#00E676</color>
+    <color name="monokia_pro_orange">#FF3D00</color>
+    <color name="monokia_pro_pink">#23E6BF</color>
+    <color name="monokia_pro_white">#FFFFFF</color>
+    <color name="monokia_pro_grey">#7C7C7C</color>
+    <color name="monokia_pro_sky">#00E5FF</color>
+    <color name="gold">#FFC400</color>
 </resources>
