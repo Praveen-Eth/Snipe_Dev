@@ -83,10 +83,7 @@ class AddPostFragment : Fragment() {
             postPreview.visibility = View.GONE
         }
 
-        feedViewModel.isFeedUploaded.observe(viewLifecycleOwner, Observer { isSuccess ->
-            Toast.makeText(requireContext(),"feedUploaded",Toast.LENGTH_SHORT).show()
 
-        })
 
 
 

@@ -11,14 +11,13 @@ class FeedViewModel: ViewModel() {
     var codeViewText: String  = ""
     var repository : Repository = Repository()
 
-    private var _isFeedUploaded = MutableLiveData<Boolean>()
-    var isFeedUploaded: LiveData<Boolean> = _isFeedUploaded
+
 
       fun uploadFeed(){
 
          viewModelScope.launch {
 
-             repository.createPost(Feed(1,codeViewText.toString())).observeForever { _isFeedUploaded.postValue(it) }
+             repository.createPost(Feed(1,codeViewText.toString()))
          }
 
     }
