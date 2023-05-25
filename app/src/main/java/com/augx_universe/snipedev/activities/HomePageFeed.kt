@@ -12,9 +12,12 @@ import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.adapters.FeedAdapter
 import com.augx_universe.snipedev.adapters.RvAdapter
 import com.augx_universe.snipedev.databinding.FragmentHomePageFeedBinding
+import com.augx_universe.snipedev.entities.FeedDataClass
 import com.augx_universe.snipedev.entities.FeedItem
+import com.augx_universe.snipedev.entities.PollItems
 import com.augx_universe.snipedev.view_models.FeedViewModel
 
 
@@ -38,7 +41,8 @@ class HomePageFeed : Fragment() {
         feedList = feedList.plus(FeedItem(R.drawable.open_monkey,"Monkey king",1200, getString(R.string.example_code)))
        feedList =  feedList.plus(FeedItem(R.drawable.close_monkey,"Monkey queen",900, getString(R.string.example_code_2)))
 
-        binding.feedRecyclerView.adapter = RvAdapter(feedList,requireContext())
+        val item = PollItems("first Poll", listOf("Java","kotlin","c++"), listOf(1))
+        binding.feedRecyclerView.adapter = FeedAdapter(listOf(item))
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root
