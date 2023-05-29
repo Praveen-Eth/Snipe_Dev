@@ -25,4 +25,5 @@
                 "        return binding.root\n"
                 "    }\n"
                 "}"</string>
+    <string name="title_activity_poll_view">PollView</string>
 </resources>

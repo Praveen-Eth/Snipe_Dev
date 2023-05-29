@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.compose.ui.platform.ComposeView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
@@ -21,9 +22,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.amrdeveloper.codeview.CodeView
 import com.augx_universe.snipedev.R
+import com.augx_universe.snipedev.composeViews.PollScreen
 import com.augx_universe.snipedev.databinding.FragmentAddPostBinding
 import com.augx_universe.snipedev.entities.GoSyntaxManager
+import com.augx_universe.snipedev.entities.PollOption
 import com.augx_universe.snipedev.view_models.FeedViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class AddPostFragment : Fragment() {
 
@@ -82,11 +86,27 @@ class AddPostFragment : Fragment() {
             codeView.visibility = View.VISIBLE
             postPreview.visibility = View.GONE
         }
+        var composeUi = binding.composeView
+        val pollCompose = ComposeView(requireContext())
+        pollCompose.setContent {
+            val pollOptions = listOf(
+                PollOption("Option 1", 0.3f),
+                PollOption("Option 2", 0.5f),
+                PollOption("Option 3", 0.2f)
+            )
+            PollScreen(pollOptions)
+        }
+        composeUi.addView(pollCompose)
 
-
-
-
-
+        var  fireBaseUpload = binding.postToFirebaseButton
+        fireBaseUpload.setOnClickListener {
+            feedViewModel.uploadFeed(){
+                isSuccess,error ->
+                if (isSuccess){
+                    Toast.makeText(requireContext(),"feel free, post updated to firebase",Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
 
     }
 }

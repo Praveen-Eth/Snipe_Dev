@@ -13,11 +13,14 @@ class FeedViewModel: ViewModel() {
 
 
 
-      fun uploadFeed(){
+      fun uploadFeed(feedBack: (Boolean,Exception?) -> Unit){
 
          viewModelScope.launch {
 
-             repository.createPost(Feed(1,codeViewText.toString()))
+             repository.createPost(Feed(1,codeViewText.toString())){
+                     Success,Exception ->
+                 feedBack(Success,Exception)
+             }
          }
 
     }
