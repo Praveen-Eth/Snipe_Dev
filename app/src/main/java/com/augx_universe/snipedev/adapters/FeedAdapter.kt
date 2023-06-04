@@ -37,7 +37,7 @@ class FeedAdapter (private val item: List<FeedDataClass>,private val context: Co
                 var view = LayoutInflater.from(context).inflate(R.layout.default_poll_bar, null)
                 var pollBackGround: CardView = view.findViewById(R.id.PollBackGround)
                 var pollTitle: TextView = view.findViewById(R.id.PollTitle)
-                pollTitle.text = pollItem.options[i-1]
+                pollTitle.text = "${pollItem.options[i-1]} ${(pollItem.votePercentageList[i-1]*100f).toInt()} %"
                 var derivedWidth = (pollItem.votePercentageList[i-1]*1000f).toInt()
                 Log.d("debugs","$derivedWidth")
                 pollBackGround.setCardBackgroundColor(pollColorList[i])
