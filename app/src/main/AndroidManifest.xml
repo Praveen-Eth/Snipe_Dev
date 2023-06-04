@@ -17,10 +17,12 @@
 
         <activity
             android:name=".activities.HomePage"
+
             android:theme="@style/Theme.AppCompat.Light"
             android:exported="false" />
         <activity
             android:name=".activities.SignUpActivity"
+
             android:theme="@style/Theme.AppCompat.Light"
             android:exported="true">
             <intent-filter>
@@ -37,6 +39,7 @@
         </activity>
         <activity
             android:name=".activities.LoginPage"
+
             android:theme="@style/Theme.AppCompat.Light"
             android:exported="false">
             <meta-data
@@ -45,6 +48,7 @@
         </activity>
         <activity
             android:name=".activities.MainActivity"
+
             android:theme="@style/Theme.AppCompat.Light"
             android:exported="true">
             <intent-filter>
