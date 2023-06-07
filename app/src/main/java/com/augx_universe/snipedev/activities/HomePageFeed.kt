@@ -15,6 +15,7 @@ import com.augx_universe.snipedev.R
 import com.augx_universe.snipedev.adapters.FeedAdapter
 import com.augx_universe.snipedev.adapters.RvAdapter
 import com.augx_universe.snipedev.databinding.FragmentHomePageFeedBinding
+import com.augx_universe.snipedev.entities.CodeSnippetItem
 import com.augx_universe.snipedev.entities.FeedDataClass
 import com.augx_universe.snipedev.entities.FeedItem
 import com.augx_universe.snipedev.entities.PollItems
@@ -42,7 +43,8 @@ class HomePageFeed : Fragment() {
        feedList =  feedList.plus(FeedItem(R.drawable.close_monkey,"Monkey queen",900, getString(R.string.example_code_2)))
 
         val item = PollItems("first Poll", listOf("Java","kotlin","c++"), listOf(0.3f,0.6f,0.1f))
-        binding.feedRecyclerView.adapter = FeedAdapter(listOf(item),requireContext())
+        val item2 = CodeSnippetItem(getString(R.string.example_code))
+        binding.feedRecyclerView.adapter = FeedAdapter(listOf(item,item2),requireContext())
         binding.feedRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         return binding.root
